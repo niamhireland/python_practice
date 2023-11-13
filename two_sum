@@ -1,0 +1,40 @@
+#TASK - solve the Leetcode 'Two Sum' problem 
+
+#PSEUDOCODE 
+#Create function
+    #empty dictionary to store indices 
+    #iterate through the array 
+        #check complement needed to reach target 
+        #if complement exists in dictionary, return indices of the numbers
+        #if complement not found, store the numbers 
+        #return None if no solution found 
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        num_dict = {}
+
+        for i, num in enumerate(nums):
+            complement = target - num
+
+            if complement in num_dict: 
+                return [num_dict[complement], i]
+
+            num_dict[num] = i
+
+        return None
+
+solution = Solution()
+
+nums1 = [2, 7, 11, 15]
+target1 = 9
+
+print(solution.twoSum(nums1, target1)) 
+
+nums2 = [3, 2, 4]
+target2 = 6
+print(solution.twoSum(nums2, target2)) 
+
+nums3 = [3, 3]
+target3 = 6
+print(solution.twoSum(nums3, target3))
+   
